@@ -6,16 +6,16 @@ import java.nio.file.Paths;
 public final class Settings {
 	//BEGIN TO PATCH
 	//Settings for Docker
-	public static final Path SUSHI_WORKSPACE       = Paths.get("/root", "sushi");
-	public static final Path EXPERIMENTS_WORKSPACE = Paths.get("/root", "sushi-experiments");
-	public static final Path Z3_PATH               = Paths.get("/usr", "bin", "z3");
-	public static final Path JAVA8_HOME            = Paths.get("/usr", "lib", "jvm", "java-8-openjdk-amd64");
+	//public static final Path SUSHI_WORKSPACE       = Paths.get("/root", "sushi");
+	//public static final Path EXPERIMENTS_WORKSPACE = Paths.get("/root", "sushi-experiments");
+	//public static final Path Z3_PATH               = Paths.get("/usr", "bin", "z3");
+	//public static final Path JAVA8_HOME            = Paths.get("/usr", "lib", "jvm", "java-8-openjdk-amd64");
 
-	//Pietro's local settings
-	//public static final Path SUSHI_WORKSPACE       = Paths.get("/Users", "pietro", "git", "sushi");
-	//public static final Path EXPERIMENTS_WORKSPACE = Paths.get("/Users", "pietro", "git", "sushi-experiments");
-	//public static final Path Z3_PATH               = Paths.get("/opt", "local", "bin", "z3");
-	//public static final Path JAVA8_HOME            = Paths.get("/Library", "Java", "JavaVirtualMachines", "openjdk8-temurin", "Contents", "Home");
+	//zyf0726's local settings
+	public static final Path SUSHI_WORKSPACE       = Paths.get("D:", "Workspace", "eclipse-workspaces", "HeapSyn-Experiments", "git", "sushi");
+	public static final Path EXPERIMENTS_WORKSPACE = Paths.get("D:", "Workspace", "eclipse-workspaces", "HeapSyn-Experiments", "git", "heapsyn-sushi-experiments");
+	public static final Path Z3_PATH               = Paths.get("D:", "Tools", "z3-4.8.10-x64-win", "bin", "z3.exe");
+	public static final Path JAVA8_HOME            = Paths.get("C:", "Program Files", "Java", "jdk1.8.0_231");
 	//END TO PATCH
 
 	public static final Path JBSE_PATH      = SUSHI_WORKSPACE.resolve(Paths.get("jbse", "build", "classes", "java", "main"));
