@@ -1,0 +1,17 @@
+resolve begin
+
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)* instanceof forSushi/sushi/avl/AvlNode aliases nothing;
+{R_ANY}.forSushi/sushi/avl/AvlTree:root instanceof forSushi/sushi/avl/AvlNode expands to instanceof forSushi/sushi/avl/AvlNode triggers forSushi/sushi/avl/AvlNode:(LforSushi/sushi/avl/AvlNode;)V:_got_AvlNode_onRoot:{$REF};
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)*.forSushi/sushi/avl/AvlNode:left instanceof forSushi/sushi/avl/AvlNode expands to instanceof forSushi/sushi/avl/AvlNode triggers forSushi/sushi/avl/AvlNode:(LforSushi/sushi/avl/AvlNode;)V:_got_AvlNode_onTheLeft:{$REF};
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)*.forSushi/sushi/avl/AvlNode:right instanceof forSushi/sushi/avl/AvlNode expands to instanceof forSushi/sushi/avl/AvlNode triggers forSushi/sushi/avl/AvlNode:(LforSushi/sushi/avl/AvlNode;)V:_got_AvlNode_onTheRight:{$REF};
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)*.forSushi/sushi/avl/AvlNode:left instanceof forSushi/sushi/avl/AvlNode null triggers forSushi/sushi/avl/AvlNode:(LforSushi/sushi/avl/AvlNode;)V:_got_null_onTheLeft:{$REF}.{UP};
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)*.forSushi/sushi/avl/AvlNode:right instanceof forSushi/sushi/avl/AvlNode null triggers forSushi/sushi/avl/AvlNode:(LforSushi/sushi/avl/AvlNode;)V:_got_null_onTheRight:{$REF}.{UP};
+
+-- wellConnected
+{R_ANY}.forSushi/sushi/avl/AvlTree:root.forSushi/sushi/avl/AvlNode:parent instanceof forSushi/sushi/avl/AvlNode expands to nothing;
+{R_ANY}.forSushi/sushi/avl/AvlTree:root.forSushi/sushi/avl/AvlNode:parent instanceof forSushi/sushi/avl/AvlNode aliases nothing;
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)+.forSushi/sushi/avl/AvlNode:parent instanceof forSushi/sushi/avl/AvlNode not null;
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)+.forSushi/sushi/avl/AvlNode:parent instanceof forSushi/sushi/avl/AvlNode expands to nothing;
+{R_ANY}.forSushi/sushi/avl/AvlTree:root(.forSushi/sushi/avl/AvlNode:left|.forSushi/sushi/avl/AvlNode:right)+.forSushi/sushi/avl/AvlNode:parent instanceof forSushi/sushi/avl/AvlNode aliases target {$REF}.{UP}.{UP};
+
+resolve end
