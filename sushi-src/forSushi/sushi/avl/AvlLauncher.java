@@ -18,7 +18,7 @@ public class AvlLauncher extends BasicLauncher {
 		p.setHEXFiles(SETTINGS_PATH.resolve("forSushi/sushi/avltree.jbse"));
 	}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		AvlLauncher launcher = new AvlLauncher();
 		launcher.startSushi();
 	}

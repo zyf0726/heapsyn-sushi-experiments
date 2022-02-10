@@ -1,0 +1,8 @@
+resolve begin
+
+-- representation invariant for BinarySearchTree
+
+-- acyclic
+{R_ANY}.forSushi/kiasan/binsearchtree/BinarySearchTree:root(.forSushi/kiasan/binsearchtree/BinaryNode:left|.forSushi/kiasan/binsearchtree/BinaryNode:right)* instanceof forSushi/kiasan/binsearchtree/BinaryNode aliases nothing;
+
+resolve end

@@ -230,7 +230,7 @@ public class LeftistHeap {
     }
   }
 
-  boolean merge_preCondition(final LeftistHeap rhs) {
+  private boolean merge_preCondition(final LeftistHeap rhs) {
     if (rhs == null) {
       return false;
     }

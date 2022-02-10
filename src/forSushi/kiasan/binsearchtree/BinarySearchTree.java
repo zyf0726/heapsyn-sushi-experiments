@@ -233,7 +233,7 @@ public class BinarySearchTree {
   /**
    * Print the tree contents in sorted order.
    */
-  void printTree() {
+  private void printTree() {
     if (isEmpty()) {
       System.out.println("Empty tree");
     } else {
@@ -294,7 +294,7 @@ public class BinarySearchTree {
     return t;
   }
 
-  boolean repOK() {
+  private boolean repOK() {
     if (this.root == null) {
       return true;
     } else {

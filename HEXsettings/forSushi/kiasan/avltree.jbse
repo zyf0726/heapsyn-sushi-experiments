@@ -1,0 +1,6 @@
+resolve begin
+
+-- root/left/right entries expand or are null
+{R_ANY}.forSushi/kiasan/avltree/AvlTree:root(.forSushi/kiasan/avltree/AvlNode:left|.forSushi/kiasan/avltree/AvlNode:right)* instanceof forSushi/kiasan/avltree/AvlNode aliases nothing;
+
+resolve end

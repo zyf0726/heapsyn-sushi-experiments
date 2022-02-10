@@ -62,7 +62,7 @@ public class StackLi {
     return false;
   }
 
-  boolean isAcyclic() {
+  private boolean isAcyclic() {
     final StackLi ll = new StackLi();
     ListNode temp = this.topOfStack;
     while (temp != null) {

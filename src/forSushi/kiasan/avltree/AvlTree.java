@@ -83,7 +83,7 @@ public class AvlTree {
 	  return new AvlTree();
   }
 
-  boolean balanced() {
+  private boolean balanced() {
     return balanced(this.root);
   }
 
@@ -267,7 +267,7 @@ public class AvlTree {
     this.root = null;
   }
 
-  boolean maxElement(final int max) {
+  private boolean maxElement(final int max) {
     return maxElement(max, this.root);
   }
 
@@ -281,7 +281,7 @@ public class AvlTree {
     return maxElement(max, t.left) && maxElement(max, t.right);
   }
 
-  boolean minElement(final int min) {
+  private boolean minElement(final int min) {
     return minElement(min, this.root);
   }
 
@@ -295,7 +295,7 @@ public class AvlTree {
     return minElement(min, t.left) && minElement(min, t.right);
   }
 
-  boolean ordered() {
+  private boolean ordered() {
     return ordered(this.root, new Range());
   }
 
@@ -315,7 +315,7 @@ public class AvlTree {
   /**
    * Print the tree contents in sorted order.
    */
-  void printTree() {
+  private void printTree() {
     if (isEmpty()) {
       System.out.println("Empty tree");
     } else {
@@ -349,7 +349,7 @@ public class AvlTree {
   }
 */
 
-  boolean wellFormed() {
+  private boolean wellFormed() {
     return wellFormed(this.root);
   }
 

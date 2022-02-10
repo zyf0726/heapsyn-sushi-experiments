@@ -727,7 +727,7 @@ public class TreeMap<V> {
    *           comparator does not tolerate <tt>null</tt> keys.
    */
 
-  int realSize() {
+  private int realSize() {
     if (this.root == null) {
       return 0;
     }

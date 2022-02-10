@@ -18,7 +18,7 @@ public class DllLauncher extends BasicLauncher {
 		p.setHEXFiles(SETTINGS_PATH.resolve("forSushi/sushi/dll.jbse"));
 	}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		DllLauncher launcher = new DllLauncher();
 		launcher.startSushi();
 	}

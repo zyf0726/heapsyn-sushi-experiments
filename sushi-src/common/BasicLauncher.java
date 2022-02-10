@@ -27,8 +27,27 @@ public class BasicLauncher implements OptionsConfigurator {
 		scope$JBSE = new HashMap<>();
 		// sushi.avl
 		scope$JBSE.put("forSushi/sushi/avl/AvlNode", 5);
+		// sushi.ncll
+		scope$JBSE.put("forSushi/sushi/ncll/NodeCachingLinkedList$LinkedListNode", 4);
+		// sushi.treemap
+		scope$JBSE.put("forSushi/sushi/treemap/TreeMap$Entry", 5);
 		// sushi.dll
 		scope$JBSE.put("forSushi/sushi/dll/LinkedList$Entry", 4);
+		// kiasan.aatree
+		scope$JBSE.put("forSushi/kiasan/aatree/AATree$AANode", 4);
+		// kiasan.binsearchtree
+		scope$JBSE.put("forSushi/kiasan/binsearchtree/BinaryNode", 5);
+		// kiasan.leftistheap
+		scope$JBSE.put("forSushi/kiasan/leftistheap/LeftistHeap", 2);
+		scope$JBSE.put("forSushi/kiasan/leftistheap/LeftistHeap$LeftistNode", 5);
+		// kiasan.stack
+		scope$JBSE.put("forSushi/kiasan/stack/ListNode", 6);
+		// kiasan.avltree
+		scope$JBSE.put("forSushi/kiasan/avltree/AvlNode", 5);
+		// kiasan.redblacktree
+		scope$JBSE.put("forSushi/kiasan/redblacktree/TreeMap$Entry", 5);
+		// sir.dll
+		scope$JBSE.put("forSushi/sir/dll/DoubleLinkedList$Entry", 4);
 	}
 	
 	@Override
