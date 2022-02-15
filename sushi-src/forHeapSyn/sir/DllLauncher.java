@@ -24,7 +24,7 @@ public class DllLauncher extends BasicLauncher {
 		HeapSynParameters p = new HeapSynParameters();
 		p.setFieldFilter(name -> true);
 		p.setTargetClass(targetClass);
-		super.configureHeapSynScope(p, "forHeapSYn/sir/dll/");
+		super.configureHeapSynScope(p, "sir/dll/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("sir/sir-dll.jbse"));
 		return p;
 	}
