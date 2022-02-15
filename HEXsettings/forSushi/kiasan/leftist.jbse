@@ -1,9 +1,0 @@
-resolve begin
-
--- representation invariant for LeftistHeap
-
--- acyclic
-{R_ANY}.forSushi/kiasan/leftistheap/LeftistHeap:root(.forSushi/kiasan/leftistheap/LeftistHeap$LeftistNode:left|.forSushi/kiasan/leftistheap/LeftistHeap$LeftistNode:right)* instanceof forSushi/kiasan/leftistheap/LeftistHeap$LeftistNode aliases nothing;
-
-
-resolve end
