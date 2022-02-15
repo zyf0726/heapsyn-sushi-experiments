@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import heapsyn.common.settings.JBSEParameters;
+
 public class BasicLauncher {
 	
 	private static final int EVOSUITE_BUDGET	= 180;   // 3min
@@ -165,20 +167,22 @@ public class BasicLauncher {
 			String clsName = entry.getKey();
 			int scope = entry.getValue();
 			if (clsName.startsWith(packageName)) {
+				p.setHeapScope(clsName, scope);
 				System.out.print("INFO - experimental setup: set heap scope (sushi.jbse) of class ");
 				System.out.println(clsName + " to " + scope);
-				p.setHeapScope(clsName, scope);
 			}
 		}
 		if (maxDepth.containsKey(packageName)) {
+			int scope = maxDepth.get(packageName);
+			p.setDepthScope(scope);
 			System.out.print("INFO - experimental setup: set depth scope (sushi.jbse) for package ");
-			System.out.println(packageName + " to " + maxDepth.get(packageName));
-			p.setDepthScope(maxDepth.get(packageName));
+			System.out.println(packageName + " to " + scope);
 		}
 		if (maxCount.containsKey(packageName)) {
+			int scope = maxCount.get(packageName);
+			p.setCountScope(scope);
 			System.out.print("INFO - experimental setup: set count scope (sushi.jbse) for package ");
-			System.out.println(packageName + " to " + maxCount.get(packageName));
-			p.setCountScope(maxDepth.get(packageName));
+			System.out.println(packageName + " to " + scope);
 		}
 	}
 	
@@ -198,24 +202,28 @@ public class BasicLauncher {
 	}
 	
 	final protected void configureHeapSynScope(HeapSynParameters p, String packageName) {
+		JBSEParameters jbseParams = HeapSynParameters.jbseParams;
+		jbseParams.resetAllScope();
 		for (Entry<String, Integer> entry : scope$JBSE.entrySet()) {
 			String clsName = entry.getKey();
 			int scope = entry.getValue();
 			if (clsName.startsWith(packageName)) {
-				HeapSynParameters.jbseParams.setHeapScope(clsName, scope);
+				jbseParams.setHeapScope(clsName, scope);
 				System.out.print("INFO - experimental setup: set heap scope (heapsyn.jbse) of class ");
 				System.out.println(clsName + " to " + scope);
 			}
 		}
 		if (maxDepth.containsKey(packageName)) {
+			int scope = maxDepth.get(packageName);
+			jbseParams.setDepthScope(scope);
 			System.out.print("INFO - experimental setup: set depth scope (heapsyn.jbse) for package ");
-			System.out.println(packageName + " to " + maxDepth.get(packageName));
-			HeapSynParameters.jbseParams.setDepthScope(maxDepth.get(packageName));
+			System.out.println(packageName + " to " + scope);
 		}
 		if (maxCount.containsKey(packageName)) {
+			int scope = maxCount.get(packageName);
+			jbseParams.setCountScope(scope);
 			System.out.print("INFO - experimental setup: set count scope (heapsyn.jbse) for package ");
-			System.out.println(packageName + " to " + maxCount.get(packageName));
-			HeapSynParameters.jbseParams.setCountScope(maxDepth.get(packageName));
+			System.out.println(packageName + " to " + scope);
 		}
 		for (Entry<String, Integer> entry : scope$HeapSyn.entrySet()) {
 			String clsName = entry.getKey();
@@ -227,14 +235,15 @@ public class BasicLauncher {
 				} catch (ClassNotFoundException e) {
 					throw new UnhandledInternalException(e);
 				}
+				p.setHeapScope(cls, scope);
 				System.out.print("INFO - experimental setup: set heap scope (heapsyn) of class ");
 				System.out.println(clsName + " to " + scope);
-				p.setHeapScope(cls, scope);
 			}
 		}
+		int maxLength = maxSeqLength.get(packageName);
+		p.setMaxSeqLength(maxLength);
 		System.out.print("INFO - experimental setup: set max sequence length for package ");
-		System.out.println(packageName + " to " + maxSeqLength.get(packageName));
-		p.setMaxSeqLength(maxSeqLength.get(packageName));
+		System.out.println(packageName + " to " + maxLength);
 	}
 	
 	final protected void configureHeapSynHEXFile(Path hexFilePath) {
