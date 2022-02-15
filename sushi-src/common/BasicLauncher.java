@@ -258,6 +258,7 @@ public class BasicLauncher {
 		final Main m = new Main(o);
 		final int exitCode = m.start();
 		if (exitCode != 0) {
+			System.out.println("ERROR - exit with code " + exitCode);
 			System.exit(exitCode);
 		}
 	}
