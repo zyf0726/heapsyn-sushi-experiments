@@ -5,6 +5,7 @@ import sushi.Main;
 import sushi.exceptions.UnhandledInternalException;
 import sushi.execution.evosuite.HeapSynParameters;
 import sushi.execution.evosuite.RunHeapSyn;
+import sushi.execution.jbse.StateTransSpec;
 
 import static common.Settings.*;
 
@@ -257,8 +258,10 @@ public class BasicLauncher {
 			HeapSynParameters params = this.getHeapSynParameters();
 			if (params != null) {
 				configureHeapSyn();
+				StateTransSpec.setFieldFilter(params.getFieldFilter());
 				o.setHeapSynRunner(new RunHeapSyn(params));
 			} else {
+				StateTransSpec.setFieldFilter(name -> true);
 				o.setHeapSynRunner(null);
 			}
 		} catch (ClassNotFoundException e) {
