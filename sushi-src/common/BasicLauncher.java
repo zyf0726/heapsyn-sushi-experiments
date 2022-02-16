@@ -252,6 +252,15 @@ public class BasicLauncher {
 	}
 	
 	final public void startSushi() {
+		final int maxRestartTimes = 2;
+		int exitCode = __startSushi(maxRestartTimes);
+		if (exitCode != 0) {
+			System.out.println("ERROR - exit with code " + exitCode);
+			System.exit(exitCode);
+		}
+	}
+	
+	final private int __startSushi(int maxRestartTimes) {
 		final sushi.Options o = new sushi.Options();
 		this.configureSushi(o);
 		try {
@@ -269,9 +278,11 @@ public class BasicLauncher {
 		}
 		final Main m = new Main(o);
 		final int exitCode = m.start();
-		if (exitCode != 0) {
-			System.out.println("ERROR - exit with code " + exitCode);
-			System.exit(exitCode);
+		if (exitCode != 0 && maxRestartTimes > 0) {
+			System.out.println("ERROR - exit with code " + exitCode + ", restart Sushi");
+			return __startSushi(maxRestartTimes - 1);
+		} else {
+			return exitCode;
 		}
 	}
 
