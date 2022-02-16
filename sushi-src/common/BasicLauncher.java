@@ -256,7 +256,7 @@ public class BasicLauncher {
 		int exitCode = __startSushi(maxRestartTimes);
 		if (exitCode != 0) {
 			System.out.println("ERROR - exit with code " + exitCode);
-			System.exit(exitCode);
+			// System.exit(exitCode);
 		}
 	}
 	
