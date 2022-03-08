@@ -22,7 +22,9 @@ public class TreeMapLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("sushi.treemap.TreeMap");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> !name.startsWith("_") && !name.equals("modCount"));
+		p.setFieldFilter(name ->
+				(!name.startsWith("_") || name.equals("_blackHeight") || name.equals("_owner"))
+				&& !name.equals("modCount"));
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "sushi/treemap/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("sushi/treemap.jbse"));

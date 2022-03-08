@@ -14,7 +14,7 @@ public class AvlLauncher extends BasicLauncher {
 		p.setTargetClass("kiasan/avltree/AvlTree");
 		p.setCoverage(Coverage.BRANCHES);
 		p.setBranchesToCover("kiasan/avltree/AvlTree.*");
-		super.configureSushiScope(p, "kiasan/avltree/AvlNode");
+		super.configureSushiScope(p, "kiasan/avltree/");
 		p.setHEXFiles(SETTINGS_PATH.resolve("kiasan/avltree.jbse"));
 	}
 	

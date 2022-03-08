@@ -14,7 +14,7 @@ public class BSTLauncher extends BasicLauncher {
 		p.setTargetClass("kiasan/binsearchtree/BinarySearchTree");
 		p.setCoverage(Coverage.BRANCHES);
 		p.setBranchesToCover("kiasan/binsearchtree/BinarySearchTree.*");
-		super.configureSushiScope(p, "kiasan/binsearchtree/BinaryNode");
+		super.configureSushiScope(p, "kiasan/binsearchtree/");
 		p.setHEXFiles(SETTINGS_PATH.resolve("kiasan/bst.jbse"));
 	}
 	

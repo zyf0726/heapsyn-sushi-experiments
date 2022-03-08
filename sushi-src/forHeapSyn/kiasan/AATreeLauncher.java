@@ -14,7 +14,7 @@ public class AATreeLauncher extends BasicLauncher {
 		p.setTargetClass("kiasan/aatree/AATree");
 		p.setCoverage(Coverage.BRANCHES);
 		p.setBranchesToCover("kiasan/aatree/AATree.*");
-		super.configureSushiScope(p, "kiasan/aatree/AATree$AANode");
+		super.configureSushiScope(p, "kiasan/aatree/");
 		p.setHEXFiles(SETTINGS_PATH.resolve("kiasan/aatree.jbse"));
 	}
 	
@@ -22,7 +22,7 @@ public class AATreeLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("kiasan.aatree.AATree");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> true);
+		p.setFieldFilter(name -> !name.equals("deletedNode") && !name.equals("lastNode"));
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "kiasan/aatree/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("kiasan/aatree.jbse"));

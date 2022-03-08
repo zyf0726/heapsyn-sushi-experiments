@@ -22,7 +22,7 @@ public class DllLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("sir.dll.DoubleLinkedList");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> true);
+		p.setFieldFilter(name -> !name.equals("modCount") && !name.equals("expectedModCount"));
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "sir/dll/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("sir/sir-dll.jbse"));

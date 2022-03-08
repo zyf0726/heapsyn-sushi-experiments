@@ -22,7 +22,10 @@ public class DllLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("sushi.dll.LinkedList");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> !name.startsWith("_"));
+		p.setFieldFilter(name ->
+				(!name.startsWith("_") || name.equals("_owner"))
+				&& !name.equals("modCount")
+				&& !name.equals("expectedModCount"));
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "sushi/dll/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("sushi/dll.jbse"));

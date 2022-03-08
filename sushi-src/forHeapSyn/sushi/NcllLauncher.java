@@ -22,7 +22,9 @@ public class NcllLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("sushi.ncll.NodeCachingLinkedList");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> !name.startsWith("_"));
+		p.setFieldFilter(name ->
+				(!name.startsWith("_") || name.equals("_owner"))
+				&& !name.equals("modCount"));
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "sushi/ncll/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("sushi/ncll.jbse"));
