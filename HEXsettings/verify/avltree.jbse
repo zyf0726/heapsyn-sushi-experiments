@@ -1,0 +1,6 @@
+resolve begin
+
+-- root/left/right entries expand or are null
+{R_ANY}.verify/avltree/AvlTree:root(.verify/avltree/AvlNode:left|.verify/avltree/AvlNode:right)* instanceof verify/avltree/AvlNode aliases nothing;
+
+resolve end

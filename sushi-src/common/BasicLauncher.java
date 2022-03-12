@@ -97,6 +97,7 @@ public class BasicLauncher {
 		
 		/* =========================== SIR ============================
 		 * (1) DoubleLinkedList: scope$List = 1, scope$Iter = 0, scope$Entry = 5(6), maxDepth = 20
+		 * (2) MyLinkedList: scope$List = 1, scope$Iter = 1, scope$Node = 5(6)
 		 */
 		
 		// sir.dll
@@ -105,6 +106,55 @@ public class BasicLauncher {
 		scope$HeapSyn.put("sir/dll/DoubleLinkedList", 1);
 		scope$HeapSyn.put("sir/dll/DoubleLinkedList$ListItr", 0);
 		depthScope.put("sir/dll/", 50);
+		// sir.sll
+		scope$JBSE.put("sir/sll/MyLinkedList$MyListNode", 5);
+		scope$HeapSyn.put("sir/sll/MyLinkedList$MyListNode", 6);
+		scope$HeapSyn.put("sir/sll/MyLinkedList", 1);
+		scope$HeapSyn.put("sir/sll/MyLinkedList$MyLinkedListItr", 1);
+		
+		/* ========================= JavaScan =========================
+		 * (1) BinomialHeap: scope$Heap = 1, scope$Node = 5(6)
+		 * (2) SkewHeap: scope$Heap = 1, scope$Node = 5(6)
+		 */
+		
+		// javascan.binomial
+		scope$JBSE.put("javascan/binomial/BinomialHeap$BinomialHeapNode", 5);
+		scope$HeapSyn.put("javascan/binomial/BinomialHeap$BinomialHeapNode", 6);
+		scope$HeapSyn.put("javascan/binomial/BinomialHeap", 1);
+		// javascan.skewheap
+		scope$JBSE.put("javascan/skewheap/SkewHeap$SkewNode", 5);
+		scope$HeapSyn.put("javascan/skewheap/SkewHeap$SkewNode", 6);
+		scope$HeapSyn.put("javascan/skewheap/SkewHeap", 1);
+		
+		/* =========================== verify =========================
+		 * (1) AATree: scope$AATree = 1, scoe$AANode = 5(6)
+		 * (2) BinTree: scope$BinTree = 1, scope$BinNode = 5(6)
+		 * (3) LeftistHeap: scope$Heap = 2, scope$Node = 5(6)
+		 * (4) AvlTree: scope$AvlTree = 1, scope$AvlNode = 5(6)
+		 * (5) TreeMap: scope$TreeMap = 1, scope$Entry = 5(6)
+		 */
+		
+		// verify.aatree
+		scope$JBSE.put("verify/aatree/AATree$AANode", 5);
+		scope$HeapSyn.put("verify/aatree/AATree$AANode", 6);
+		scope$HeapSyn.put("verify/aatree/AATree", 1);
+		// verify.binsearchtree
+		scope$JBSE.put("verify/binsearchtree/BinaryNode", 5);
+		scope$HeapSyn.put("verify/binsearchtree/BinaryNode", 6);
+		scope$HeapSyn.put("verify/binsearchtree/BinarySearchTree", 1);
+		// verify.leftistheap
+		scope$JBSE.put("verify/leftistheap/LeftistHeap$LeftistNode", 5);
+		scope$HeapSyn.put("verify/leftistheap/LeftistHeap$LeftistNode", 6);
+		scope$HeapSyn.put("verify/leftistheap/LeftistHeap", 2);
+		// verify.avltree
+		scope$JBSE.put("verify/avltree/AvlNode", 5);
+		scope$HeapSyn.put("verify/avltree/AvlNode", 6);
+		scope$HeapSyn.put("verify/avltree/AvlTree", 1);
+		// verify.redblacktree
+		scope$JBSE.put("verify/redblacktree/TreeMap$Entry", 5);
+		scope$HeapSyn.put("verify/redblacktree/TreeMap$Entry", 6);
+		scope$HeapSyn.put("verify/redblacktree/TreeMap", 1);
+		
 	}
 	
 	public void configureSushi(sushi.Options p) {
@@ -228,7 +278,9 @@ public class BasicLauncher {
 	}
 	
 	final protected void configureHeapSynHEXFile(Path hexFilePath) {
-		HeapSynParameters.jbseParams.setSettingsPath(hexFilePath.toAbsolutePath().toString());
+		if (hexFilePath != null) {
+			HeapSynParameters.jbseParams.setSettingsPath(hexFilePath.toAbsolutePath().toString());
+		}
 	}
 	
 	final public void startSushi() {

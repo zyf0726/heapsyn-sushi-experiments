@@ -1,0 +1,22 @@
+resolve begin
+
+-- representation invariant for AATree
+
+-- nullNode is not null 
+{R_ANY}.verify/aatree/AATree:nullNode instanceof verify/aatree/AATree$AANode not null;
+
+-- nullNode.left == nullNode
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:left instanceof verify/aatree/AATree$AANode not null;
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:left instanceof verify/aatree/AATree$AANode expands to nothing;
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:left instanceof verify/aatree/AATree$AANode aliases target {$R_ANY}.verify/aatree/AATree:nullNode;
+
+-- nullNode.right == nullNode
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:right instanceof verify/aatree/AATree$AANode not null;
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:right instanceof verify/aatree/AATree$AANode expands to nothing;
+{R_ANY}.verify/aatree/AATree:nullNode.verify/aatree/AATree$AANode:right instanceof verify/aatree/AATree$AANode aliases target {$R_ANY}.verify/aatree/AATree:nullNode;
+
+-- root/left/right entries expand or alias to nullNode
+{R_ANY}.verify/aatree/AATree:root(.verify/aatree/AATree$AANode:left|.verify/aatree/AATree$AANode:right)* instanceof verify/aatree/AATree$AANode not null;
+{R_ANY}.verify/aatree/AATree:root(.verify/aatree/AATree$AANode:left|.verify/aatree/AATree$AANode:right)* instanceof verify/aatree/AATree$AANode aliases target {$R_ANY}.verify/aatree/AATree:nullNode;
+
+resolve end

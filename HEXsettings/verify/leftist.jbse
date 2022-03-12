@@ -1,0 +1,9 @@
+resolve begin
+
+-- representation invariant for LeftistHeap
+
+-- acyclic
+{R_ANY}.verify/leftistheap/LeftistHeap:root(.verify/leftistheap/LeftistHeap$LeftistNode:left|.verify/leftistheap/LeftistHeap$LeftistNode:right)* instanceof verify/leftistheap/LeftistHeap$LeftistNode aliases nothing;
+
+
+resolve end

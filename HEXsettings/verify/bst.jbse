@@ -1,0 +1,8 @@
+resolve begin
+
+-- representation invariant for BinarySearchTree
+
+-- acyclic
+{R_ANY}.verify/binsearchtree/BinarySearchTree:root(.verify/binsearchtree/BinaryNode:left|.verify/binsearchtree/BinaryNode:right)* instanceof verify/binsearchtree/BinaryNode aliases nothing;
+
+resolve end
