@@ -18,14 +18,14 @@ public class Main {
 		forHeapSyn.sir.DllLauncher.main(args);
 		forHeapSyn.sir.SllLauncher.main(args);
 		
-		forHeapSyn.javascan.BinomialLauncher.main(args);
-		forHeapSyn.javascan.SkewLauncher.main(args);
-		
 		forHeapSyn.verify.AATreeVerifier.main(args);
 		forHeapSyn.verify.AvlTreeVerifier.main(args);
 		forHeapSyn.verify.BSTVerifier.main(args);
 		forHeapSyn.verify.LeftistVerifier.main(args);
 		forHeapSyn.verify.TreeMapVerifier.main(args);
+		
+		forHeapSyn.javascan.SkewLauncher.main(args);
+		forHeapSyn.javascan.BinomialLauncher.main(args);
 	}
 
 }

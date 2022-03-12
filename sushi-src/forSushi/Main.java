@@ -18,8 +18,8 @@ public class Main {
 		forSushi.sir.DllLauncher.main(args);
 		forSushi.sir.SllLauncher.main(args);
 		
-		forSushi.javascan.BinomialLauncher.main(args);
 		forSushi.javascan.SkewLauncher.main(args);
+		forSushi.javascan.BinomialLauncher.main(args);
 	}
 
 }
