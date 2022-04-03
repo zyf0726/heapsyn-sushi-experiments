@@ -43,6 +43,7 @@ public class AATreeVerifier extends BasicLauncher {
 	public static void main(String[] args) {
 		new AATreeVerifier("check$ordered").startSushi();
 		new AATreeVerifier("check$wellLevel").startSushi();
+		new AATreeVerifier("check$wellFormed").startSushi();
 	}
 
 }

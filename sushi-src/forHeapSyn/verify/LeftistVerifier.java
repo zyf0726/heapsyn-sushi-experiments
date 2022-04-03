@@ -44,7 +44,9 @@ public class LeftistVerifier extends BasicLauncher {
 	public static void main(String[] args) {
 		new LeftistVerifier("check$ordered", "()V").startSushi();
 		new LeftistVerifier("check$isLeftist", "()V").startSushi();
-		new LeftistVerifier("check$merge_preCondition", "(Lverify/leftistheap/LeftistHeap;)V").startSushi();
+		new LeftistVerifier("check$wellFormed", "()V").startSushi();
+		// new LeftistVerifier("check$nodeDisjoint", "(Lverify/leftistheap/LeftistHeap;)V").startSushi();
+		// new LeftistVerifier("check$wellMerged", "(Lverify/leftistheap/LeftistHeap;)V").startSushi();
 	}
 
 }

@@ -297,6 +297,61 @@ public class LeftistHeap {
   
   // ====================== properties to be verified =======================
   
+/*
+  private boolean nodeDisjoint(final LeftistHeap rhs) {
+    final LinkedList<LeftistNode> seen = new LinkedList<LeftistNode>();
+    if (this.root != null) {
+      seen.addLast(this.root);
+      final boolean result = isAcyclic(this.root, seen);
+      if (!result) {
+        return false;
+      }
+    }
+    if (rhs.root != null) {
+      if (seen.contains(rhs.root)) {
+        return false;
+      }
+      seen.addLast(rhs.root);
+      return isAcyclic(rhs.root, seen);
+    }
+    return true;
+  }
+  
+  private boolean wellMerged(final LeftistHeap rhs) {
+    final LinkedList<LeftistNode> nodesPre = new LinkedList<LeftistNode>();
+    if (this.root != null) {
+      nodesPre.addLast(this.root);
+      final boolean result = isAcyclic(this.root, nodesPre);
+      if (!result) {
+        return false;
+      }
+    }
+    if (rhs.root != null) {
+      if (nodesPre.contains(rhs.root)) {
+        return false;
+      }
+      nodesPre.addLast(rhs.root);
+      final boolean result = isAcyclic(rhs.root, nodesPre);
+      if (!result) {
+        return false;
+      }
+    }
+    this.merge(rhs);
+    final LinkedList<LeftistNode> nodesPost = new LinkedList<LeftistNode>();
+    if (this.root != null) {
+      nodesPost.addLast(this.root);
+      final boolean result = isAcyclic(this.root, nodesPost);
+      if (!result) {
+        return false;
+      }
+    }
+    if (rhs.root != null) {
+      return false;
+    }
+    return nodesPre.containsAll(nodesPost) && nodesPost.containsAll(nodesPre);
+  }
+*/
+  
   private void check$ordered() {
 	  Analysis.ass3rt(this.ordered(this.root));
   }
@@ -305,10 +360,22 @@ public class LeftistHeap {
 	  Analysis.ass3rt(this.isLeftist(this.root));
   }
   
-  private void check$merge_preCondition(final LeftistHeap rhs) {
+  private void check$wellFormed() {
+	  Analysis.ass3rt(this.wellFormed());
+  }
+  
+/*
+  private void check$nodeDisjoint(final LeftistHeap rhs) {
 	  if (rhs != null && rhs != this) {
-		  Analysis.ass3rt(this.merge_preCondition(rhs));
+		  Analysis.ass3rt(this.nodeDisjoint(rhs));
 	  }
   }
+  
+  private void check$wellMerged(final LeftistHeap rhs) {
+	  if (rhs != null && rhs != this) {
+		  Analysis.ass3rt(this.wellMerged(rhs));
+	  }
+  }
+*/
   
 }

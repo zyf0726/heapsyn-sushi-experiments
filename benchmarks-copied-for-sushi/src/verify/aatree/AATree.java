@@ -434,4 +434,8 @@ public class AATree {
 	  Analysis.ass3rt(this.wellLevel(this.root, this.root.level + 1)); 
   }
   
+  private void check$wellFormed() {
+	  Analysis.ass3rt(this.wellFormed());
+  }
+  
 }
