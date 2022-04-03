@@ -226,7 +226,8 @@ public class BasicLauncher {
 		p.setJBSESourcePath(JBSE_SRC_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
 		p.setTargetClassPath(BIN_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
 		p.setTargetSourcePath(SRC_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
-		p.setShowOnConsole(true);
+		p.setShowOnConsole(false);
+		heapsyn.common.Logger.setLevelInfo();
 	}
 	
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
