@@ -18,16 +18,19 @@ import heapsyn.common.settings.JBSEParameters;
 
 public class BasicLauncher {
 	
-	private static final int EVOSUITE_BUDGET	= 300;   // 5min
-	private static final int JBSE_BUDGET		= 1800;  // 30min
-	private static final int MINIMIZER_BUDGET	= 300;   // 5min
-	private static final int GLOBAL_BUDGET		= 7200;  // 2hr
+	private static final int EVOSUITE_BUDGET	= 180;   // 3min
+	private static final int GLOBAL_BUDGET		= 3600;  // 1hr
+	
+	private static final int JBSE_BUDGET		= 1200;  // 20min
+	private static final int MINIMIZER_BUDGET	= 180;   // 3min
 	
 	private static final int REDUNDANCE			= 1; 
 	private static final int PARALLELISM		= 1;
 	private static final int NUM_MOSA_TARGETS	= 1;
 	
-	private static final int MAX_SEQ_LENGTH		= 20;
+	private static final int MAX_SEQ_LENGTH			= 20;
+	private static final int DEFAULT_SCOPE_JBSE		= 5;
+	private static final int DEFAULT_SCOPE_HEAPSYN	= 6;
 	
 	private static Map<String, Integer> scope$JBSE = new HashMap<>();
 	private static Map<String, Integer> scope$HeapSyn = new HashMap<>();
@@ -43,20 +46,20 @@ public class BasicLauncher {
 		 */		
 		
 		// sushi.avl
-		scope$JBSE.put("sushi/avl/AvlNode", 5);
-		scope$HeapSyn.put("sushi/avl/AvlNode", 6);
+		scope$JBSE.put("sushi/avl/AvlNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sushi/avl/AvlNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sushi/avl/AvlTree", 1);
 		// sushi.ncll
-		scope$JBSE.put("sushi/ncll/NodeCachingLinkedList$LinkedListNode", 5);
-		scope$HeapSyn.put("sushi/ncll/NodeCachingLinkedList$LinkedListNode", 6);
+		scope$JBSE.put("sushi/ncll/NodeCachingLinkedList$LinkedListNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sushi/ncll/NodeCachingLinkedList$LinkedListNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sushi/ncll/NodeCachingLinkedList", 1);
 		// sushi.treemap
-		scope$JBSE.put("sushi/treemap/TreeMap$Entry", 5);
-		scope$HeapSyn.put("sushi/treemap/TreeMap$Entry", 6);
+		scope$JBSE.put("sushi/treemap/TreeMap$Entry", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sushi/treemap/TreeMap$Entry", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sushi/treemap/TreeMap", 1);
 		// sushi.dll
-		scope$JBSE.put("sushi/dll/LinkedList$Entry", 5);
-		scope$HeapSyn.put("sushi/dll/LinkedList$Entry", 6);
+		scope$JBSE.put("sushi/dll/LinkedList$Entry", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sushi/dll/LinkedList$Entry", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sushi/dll/LinkedList", 1);
 		scope$HeapSyn.put("sushi/dll/LinkedList$ListItr", 0);
 		scope$HeapSyn.put("sushi/dll/LinkedList$DescendingIterator", 0);
@@ -71,28 +74,28 @@ public class BasicLauncher {
 		 */
 		
 		// kiasan.aatree
-		scope$JBSE.put("kiasan/aatree/AATree$AANode", 5);
-		scope$HeapSyn.put("kiasan/aatree/AATree$AANode", 6);
+		scope$JBSE.put("kiasan/aatree/AATree$AANode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/aatree/AATree$AANode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/aatree/AATree", 1);
 		// kiasan.binsearchtree
-		scope$JBSE.put("kiasan/binsearchtree/BinaryNode", 5);
-		scope$HeapSyn.put("kiasan/binsearchtree/BinaryNode", 6);
+		scope$JBSE.put("kiasan/binsearchtree/BinaryNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/binsearchtree/BinaryNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/binsearchtree/BinarySearchTree", 1);
 		// kiasan.leftistheap
-		scope$JBSE.put("kiasan/leftistheap/LeftistHeap$LeftistNode", 5);
-		scope$HeapSyn.put("kiasan/leftistheap/LeftistHeap$LeftistNode", 6);
+		scope$JBSE.put("kiasan/leftistheap/LeftistHeap$LeftistNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/leftistheap/LeftistHeap$LeftistNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/leftistheap/LeftistHeap", 2);
 		// kiasan.stack
-		scope$JBSE.put("kiasan/stack/ListNode", 5);
-		scope$HeapSyn.put("kiasan/stack/ListNode", 6);
+		scope$JBSE.put("kiasan/stack/ListNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/stack/ListNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/stack/StackLi", 1);
 		// kiasan.avltree
-		scope$JBSE.put("kiasan/avltree/AvlNode", 5);
-		scope$HeapSyn.put("kiasan/avltree/AvlNode", 6);
+		scope$JBSE.put("kiasan/avltree/AvlNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/avltree/AvlNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/avltree/AvlTree", 1);
 		// kiasan.redblacktree
-		scope$JBSE.put("kiasan/redblacktree/TreeMap$Entry", 5);
-		scope$HeapSyn.put("kiasan/redblacktree/TreeMap$Entry", 6);
+		scope$JBSE.put("kiasan/redblacktree/TreeMap$Entry", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("kiasan/redblacktree/TreeMap$Entry", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("kiasan/redblacktree/TreeMap", 1);
 		
 		/* =========================== SIR ============================
@@ -101,14 +104,14 @@ public class BasicLauncher {
 		 */
 		
 		// sir.dll
-		scope$JBSE.put("sir/dll/DoubleLinkedList$Entry", 5);
-		scope$HeapSyn.put("sir/dll/DoubleLinkedList$Entry", 6);
+		scope$JBSE.put("sir/dll/DoubleLinkedList$Entry", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sir/dll/DoubleLinkedList$Entry", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sir/dll/DoubleLinkedList", 1);
 		scope$HeapSyn.put("sir/dll/DoubleLinkedList$ListItr", 0);
 		depthScope.put("sir/dll/", 50);
 		// sir.sll
-		scope$JBSE.put("sir/sll/MyLinkedList$MyListNode", 5);
-		scope$HeapSyn.put("sir/sll/MyLinkedList$MyListNode", 6);
+		scope$JBSE.put("sir/sll/MyLinkedList$MyListNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("sir/sll/MyLinkedList$MyListNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("sir/sll/MyLinkedList", 1);
 		scope$HeapSyn.put("sir/sll/MyLinkedList$MyLinkedListItr", 1);
 		
@@ -118,12 +121,12 @@ public class BasicLauncher {
 		 */
 		
 		// javascan.binomial
-		scope$JBSE.put("javascan/binomial/BinomialHeap$BinomialHeapNode", 5);
-		scope$HeapSyn.put("javascan/binomial/BinomialHeap$BinomialHeapNode", 6);
+		scope$JBSE.put("javascan/binomial/BinomialHeap$BinomialHeapNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("javascan/binomial/BinomialHeap$BinomialHeapNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("javascan/binomial/BinomialHeap", 1);
 		// javascan.skewheap
-		scope$JBSE.put("javascan/skewheap/SkewHeap$SkewNode", 5);
-		scope$HeapSyn.put("javascan/skewheap/SkewHeap$SkewNode", 6);
+		scope$JBSE.put("javascan/skewheap/SkewHeap$SkewNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("javascan/skewheap/SkewHeap$SkewNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("javascan/skewheap/SkewHeap", 1);
 		
 		/* =========================== verify =========================
@@ -135,24 +138,24 @@ public class BasicLauncher {
 		 */
 		
 		// verify.aatree
-		scope$JBSE.put("verify/aatree/AATree$AANode", 5);
-		scope$HeapSyn.put("verify/aatree/AATree$AANode", 6);
+		scope$JBSE.put("verify/aatree/AATree$AANode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("verify/aatree/AATree$AANode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("verify/aatree/AATree", 1);
 		// verify.binsearchtree
-		scope$JBSE.put("verify/binsearchtree/BinaryNode", 5);
-		scope$HeapSyn.put("verify/binsearchtree/BinaryNode", 6);
+		scope$JBSE.put("verify/binsearchtree/BinaryNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("verify/binsearchtree/BinaryNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("verify/binsearchtree/BinarySearchTree", 1);
 		// verify.leftistheap
-		scope$JBSE.put("verify/leftistheap/LeftistHeap$LeftistNode", 5);
-		scope$HeapSyn.put("verify/leftistheap/LeftistHeap$LeftistNode", 6);
+		scope$JBSE.put("verify/leftistheap/LeftistHeap$LeftistNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("verify/leftistheap/LeftistHeap$LeftistNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("verify/leftistheap/LeftistHeap", 2);
 		// verify.avltree
-		scope$JBSE.put("verify/avltree/AvlNode", 5);
-		scope$HeapSyn.put("verify/avltree/AvlNode", 6);
+		scope$JBSE.put("verify/avltree/AvlNode", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("verify/avltree/AvlNode", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("verify/avltree/AvlTree", 1);
 		// verify.redblacktree
-		scope$JBSE.put("verify/redblacktree/TreeMap$Entry", 5);
-		scope$HeapSyn.put("verify/redblacktree/TreeMap$Entry", 6);
+		scope$JBSE.put("verify/redblacktree/TreeMap$Entry", DEFAULT_SCOPE_JBSE);
+		scope$HeapSyn.put("verify/redblacktree/TreeMap$Entry", DEFAULT_SCOPE_HEAPSYN);
 		scope$HeapSyn.put("verify/redblacktree/TreeMap", 1);
 		
 	}
