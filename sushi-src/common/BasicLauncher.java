@@ -18,11 +18,12 @@ import heapsyn.common.settings.JBSEParameters;
 
 public class BasicLauncher {
 	
-	private static final int EVOSUITE_BUDGET	= 180;   // 3min
-	private static final int GLOBAL_BUDGET		= 3600;  // 1hr
+	private static final int EVOSUITE_BUDGET	= 180;		// 3min
+	private static final int GLOBAL_BUDGET		= 3600;		// 1hr 
+	private static final int BUILD_BUDGET		= 1800;		// 30min
 	
-	private static final int JBSE_BUDGET		= 1200;  // 20min
-	private static final int MINIMIZER_BUDGET	= 180;   // 3min
+	private static final int JBSE_BUDGET		= 900;		// 15min
+	private static final int MINIMIZER_BUDGET	= 60;		// 1min
 	
 	private static final int REDUNDANCE			= 1; 
 	private static final int PARALLELISM		= 1;
@@ -225,6 +226,7 @@ public class BasicLauncher {
 		heapsyn.common.settings.Options o = HeapSynParameters.heapsynOptions;
 		heapsyn.common.settings.JBSEParameters p = HeapSynParameters.jbseParams;
 		o.setSolverExecPath(Z3_PATH.toAbsolutePath().toString());
+		o.setTimeBudget(BUILD_BUDGET);
 		p.setJBSEClassPath(JBSE_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
 		p.setJBSESourcePath(JBSE_SRC_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
 		p.setTargetClassPath(BIN_PATH_FOR_HEAPSYN.toAbsolutePath().toString());
