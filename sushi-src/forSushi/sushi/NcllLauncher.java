@@ -19,6 +19,6 @@ public class NcllLauncher extends BasicLauncher {
 
 	public static void main(String[] args) {
 		NcllLauncher launcher = new NcllLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]sushi.CachingList.txt");
 	}
 }

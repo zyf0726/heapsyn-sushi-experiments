@@ -19,7 +19,7 @@ public class AATreeLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		AATreeLauncher launcher = new AATreeLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]kiasan.AATree.txt");
 	}
 
 }

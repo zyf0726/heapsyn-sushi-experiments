@@ -5,10 +5,10 @@ import java.nio.file.Paths;
 
 public final class Settings {
 
-	public static final Path SUSHI_WORKSPACE       = Paths.get("D:", "Workspace", "eclipse-workspaces", "HeapSyn-Experiments", "git", "sushi");
-	public static final Path EXPERIMENTS_WORKSPACE = Paths.get("D:", "Workspace", "eclipse-workspaces", "HeapSyn-Experiments", "git", "heapsyn-sushi-experiments");
+	public static final Path SUSHI_WORKSPACE       = Paths.get("D:", "Code", "eclipse-workspaces", "HeapSyn-Experiments", "git", "sushi");
+	public static final Path EXPERIMENTS_WORKSPACE = Paths.get("D:", "Code", "eclipse-workspaces", "HeapSyn-Experiments", "git", "heapsyn-sushi-experiments");
 	public static final Path Z3_PATH               = Paths.get("D:", "Tools", "z3-4.8.10-x64-win", "bin", "z3.exe");
-	public static final Path JAVA8_HOME            = Paths.get("C:", "Program Files", "Java", "jdk1.8.0_231");
+	public static final Path JAVA8_HOME            = Paths.get("C:", "Program Files", "Java", "jdk1.8.0_271");
 
 	public static final Path JBSE_PATH      = SUSHI_WORKSPACE.resolve(Paths.get("jbse", "build", "classes", "java", "main"));
 	public static final Path SUSHI_LIB_PATH = SUSHI_WORKSPACE.resolve(Paths.get("runtime", "build", "classes", "java", "main"));

@@ -12,7 +12,7 @@ public class BSTVerifier extends BasicLauncher {
 	private final String METHOD_NAME;
 	
 	public BSTVerifier(String methodName) {
-		System.out.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
+		System.err.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
 		this.METHOD_NAME = methodName;
 	}
 	
@@ -41,7 +41,7 @@ public class BSTVerifier extends BasicLauncher {
 	}
 	
 	public static void main(String[] args) {
-		new BSTVerifier("check$ordered").startSushi();
+		new BSTVerifier("check$ordered").startSushi("BST.ordered.txt");
 	}
 
 }

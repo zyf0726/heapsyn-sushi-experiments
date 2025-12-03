@@ -19,7 +19,7 @@ public class SllLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		SllLauncher launcher = new SllLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]sir.sll.txt");
 	}
 
 }

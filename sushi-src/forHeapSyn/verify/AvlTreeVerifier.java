@@ -12,7 +12,7 @@ public class AvlTreeVerifier extends BasicLauncher {
 	private final String METHOD_NAME;
 	
 	public AvlTreeVerifier(String methodName) {
-		System.out.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
+		System.err.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
 		this.METHOD_NAME = methodName;
 	}
 	
@@ -41,9 +41,9 @@ public class AvlTreeVerifier extends BasicLauncher {
 	}
 	
 	public static void main(String[] args) {
-		new AvlTreeVerifier("check$balanced").startSushi();
-		new AvlTreeVerifier("check$ordered").startSushi();
-		new AvlTreeVerifier("check$wellFormed").startSushi();
+		new AvlTreeVerifier("check$balanced").startSushi("AvlTree.balanced.txt");
+		new AvlTreeVerifier("check$ordered").startSushi("AvlTree.ordered.txt");
+		new AvlTreeVerifier("check$wellFormed").startSushi("AvlTree.wellFormed.txt");
 	}
 
 }

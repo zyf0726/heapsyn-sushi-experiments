@@ -19,7 +19,7 @@ public class BSTLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		BSTLauncher launcher = new BSTLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]kiasan.BST.txt");
 	}
 
 }

@@ -19,7 +19,7 @@ public class StackLiLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		StackLiLauncher launcher = new StackLiLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]kiasan.stackli.txt");
 	}
 
 }

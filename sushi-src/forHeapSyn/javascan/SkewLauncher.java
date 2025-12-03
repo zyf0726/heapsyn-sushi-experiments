@@ -31,7 +31,7 @@ public class SkewLauncher extends BasicLauncher {
 
 	public static void main(String[] args) {
 		SkewLauncher launcher = new SkewLauncher();
-		launcher.startSushi();
+		launcher.startSushi("javascan.SkewHeap.txt");
 	}
 	
 }

@@ -13,7 +13,7 @@ public class LeftistVerifier extends BasicLauncher {
 	private final String METHOD_DESCRIPTOR;
 	
 	public LeftistVerifier(String methodName, String methodDesc) {
-		System.out.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
+		System.err.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
 		this.METHOD_NAME = methodName;
 		this.METHOD_DESCRIPTOR = methodDesc;
 	}
@@ -42,9 +42,9 @@ public class LeftistVerifier extends BasicLauncher {
 	}
 	
 	public static void main(String[] args) {
-		new LeftistVerifier("check$ordered", "()V").startSushi();
-		new LeftistVerifier("check$isLeftist", "()V").startSushi();
-		new LeftistVerifier("check$wellFormed", "()V").startSushi();
+		new LeftistVerifier("check$ordered", "()V").startSushi("LeftHeap.ordered.txt");
+		new LeftistVerifier("check$isLeftist", "()V").startSushi("LeftHeap.isLeftist.txt");
+		new LeftistVerifier("check$wellFormed", "()V").startSushi("LeftHeap.wellFormed.txt");
 		// new LeftistVerifier("check$nodeDisjoint", "(Lverify/leftistheap/LeftistHeap;)V").startSushi();
 		// new LeftistVerifier("check$wellMerged", "(Lverify/leftistheap/LeftistHeap;)V").startSushi();
 	}

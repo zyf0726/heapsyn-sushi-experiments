@@ -22,7 +22,7 @@ public class AATreeLauncher extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName("kiasan.aatree.AATree");
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> !name.equals("deletedNode") && !name.equals("lastNode"));
+		p.setFieldFilter(name -> true);
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, "kiasan/aatree/");
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("kiasan/aatree.jbse"));
@@ -31,7 +31,7 @@ public class AATreeLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		AATreeLauncher launcher = new AATreeLauncher();
-		launcher.startSushi();
+		launcher.startSushi("kiasan.AATree.txt");
 	}
 
 }

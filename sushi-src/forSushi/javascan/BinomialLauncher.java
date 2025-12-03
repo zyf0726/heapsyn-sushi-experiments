@@ -19,7 +19,7 @@ public class BinomialLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		BinomialLauncher launcher = new BinomialLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]javascan.BinomHeap.txt");
 	}
 	
 }

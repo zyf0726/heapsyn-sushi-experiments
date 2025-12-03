@@ -19,7 +19,7 @@ public class DllLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		DllLauncher launcher = new DllLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]sushi.dll.txt");
 	}
 
 }

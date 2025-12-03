@@ -12,7 +12,7 @@ public class TreeMapVerifier extends BasicLauncher {
 	private final String METHOD_NAME;
 	
 	public TreeMapVerifier(String methodName) {
-		System.out.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
+		System.err.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
 		this.METHOD_NAME = methodName;
 	}
 	
@@ -41,10 +41,10 @@ public class TreeMapVerifier extends BasicLauncher {
 	}
 	
 	public static void main(String[] args) {
-		new TreeMapVerifier("check$ordered").startSushi();
-		new TreeMapVerifier("check$redConsistency").startSushi();
-		new TreeMapVerifier("check$blackConsistency").startSushi();
-		new TreeMapVerifier("check$sizeConsistency").startSushi();
+		new TreeMapVerifier("check$ordered").startSushi("TreeMap.ordered.txt");
+		new TreeMapVerifier("check$redConsistency").startSushi("TreeMap.redConsistency.txt");
+		new TreeMapVerifier("check$blackConsistency").startSushi("TreeMap.blackConsistency.txt");
+		new TreeMapVerifier("check$sizeConsistency").startSushi("TreeMap.sizeConsistency.txt");
 	}
 
 }

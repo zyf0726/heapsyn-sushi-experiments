@@ -12,7 +12,7 @@ public class AATreeVerifier extends BasicLauncher {
 	private final String METHOD_NAME;
 	
 	public AATreeVerifier(String methodName) {
-		System.out.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
+		System.err.println("INFO - start to verify " + methodName + " of class " + METHOD_CLASS);
 		this.METHOD_NAME = methodName;
 	}
 	
@@ -33,7 +33,7 @@ public class AATreeVerifier extends BasicLauncher {
 	public HeapSynParameters getHeapSynParameters() throws ClassNotFoundException {
 		final Class<?> targetClass = Class.forName(METHOD_CLASS.replace('/', '.'));
 		HeapSynParameters p = new HeapSynParameters();
-		p.setFieldFilter(name -> !name.equals("deletedNode") && !name.equals("lastNode"));
+		p.setFieldFilter(name -> true);
 		p.setTargetClass(targetClass);
 		super.configureHeapSynScope(p, PACKAGE);
 		super.configureHeapSynHEXFile(SETTINGS_PATH.resolve("verify/aatree.jbse"));
@@ -41,9 +41,9 @@ public class AATreeVerifier extends BasicLauncher {
 	}
 	
 	public static void main(String[] args) {
-		new AATreeVerifier("check$ordered").startSushi();
-		new AATreeVerifier("check$wellLevel").startSushi();
-		new AATreeVerifier("check$wellFormed").startSushi();
+		new AATreeVerifier("check$ordered").startSushi("AAtree.ordered.txt");
+		new AATreeVerifier("check$wellLevel").startSushi("AAtree.wellLevel.txt");
+		new AATreeVerifier("check$wellFormed").startSushi("AAtree.wellFormed.txt");
 	}
 
 }

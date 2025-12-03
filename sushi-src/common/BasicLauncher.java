@@ -9,6 +9,9 @@ import sushi.execution.jbse.StateTransSpec;
 
 import static common.Settings.*;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,14 +26,15 @@ public class BasicLauncher {
 	private static final int BUILD_BUDGET		= 1800;		// 30min
 	
 	private static final int JBSE_BUDGET		= 900;		// 15min
-	private static final int MINIMIZER_BUDGET	= 60;		// 1min
+	private static final int MINIMIZER_BUDGET	= 300;		// 5min
 	
 	private static final int REDUNDANCE			= 1; 
 	private static final int PARALLELISM		= 1;
 	private static final int NUM_MOSA_TARGETS	= 1;
 	
-	private static final int MAX_SEQ_LENGTH			= 20;
-	private static final int DEFAULT_SCOPE_JBSE		= 5;
+	private static int MAX_SEQ_LENGTH		= 20;
+	private static int DEFAULT_SCOPE_JBSE	= 5;
+	
 	private static final int DEFAULT_SCOPE_HEAPSYN	= 6;
 	
 	private static Map<String, Integer> scope$JBSE = new HashMap<>();
@@ -38,7 +42,12 @@ public class BasicLauncher {
 	private static Map<String, Integer> countScope = new HashMap<>();
 	private static Map<String, Integer> depthScope = new HashMap<>();
 	
-	static {
+	public static void setMaxLength(int length) { MAX_SEQ_LENGTH = length; }
+	public static void setJBSEScope(int scope) { DEFAULT_SCOPE_JBSE = scope; }
+	
+	static { configure(); }
+	
+	public static void configure() {
 		/* ========================= sushi ===========================
 		 * (1) AvlTree: scope$AvlTree = 1, scope$AvlNode = 5(6)
 		 * (2) NodeCachingLinkedList: scope$List = 1, scope$Node = 5(6)
@@ -289,7 +298,46 @@ public class BasicLauncher {
 		}
 	}
 	
-	final public void startSushi() {
+	final public void onlyBuildGraph(String logFile, boolean doStateMerging) {
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("log/[build][" + (doStateMerging ? "Merge" : "Direct") + "][maxL=" + MAX_SEQ_LENGTH + "]" + logFile);
+		} catch (IOException e) {
+			System.out.println("ERROR - IOException");
+			e.printStackTrace();
+			return;
+		}
+		System.err.println(">> " + logFile);
+		System.setOut(new PrintStream(fos));
+		try {
+			HeapSynParameters params = this.getHeapSynParameters();
+			RunHeapSyn runner = null;
+			if (params != null) {
+				configureHeapSyn();
+				runner = new RunHeapSyn(params);
+			}
+			if (runner == null) {
+				System.out.println("ERROR - HeapSyn not configured");
+				return;
+			}
+			runner.onlyBuildGraph(doStateMerging);
+		} catch (ClassNotFoundException e) {
+			throw new UnhandledInternalException(e);
+		}
+	}
+	
+	final public void startSushi(String logFile) {
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream("log/[maxL=" + MAX_SEQ_LENGTH + "]" + logFile);
+		} catch (IOException e) {
+			System.out.println("ERROR - IOException");
+			e.printStackTrace();
+			return;
+		}
+		System.err.println(">> " + logFile);
+		System.setOut(new PrintStream(fos));
+		
 		final int maxRestartTimes = 2;
 		int exitCode = __startSushi(maxRestartTimes);
 		if (exitCode != 0) {

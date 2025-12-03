@@ -19,7 +19,7 @@ public class LeftistHeapLauncher extends BasicLauncher {
 
 	public static void main(String[] args) {
 		LeftistHeapLauncher launcher = new LeftistHeapLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]kiasan.leftHeap.txt");
 	}
 	
 }

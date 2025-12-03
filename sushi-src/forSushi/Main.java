@@ -20,6 +20,8 @@ public class Main {
 		
 		forSushi.javascan.SkewLauncher.main(args);
 		forSushi.javascan.BinomialLauncher.main(args);
+		
+		System.err.println("Terminated");
 	}
 
 }

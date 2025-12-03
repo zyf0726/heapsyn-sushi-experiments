@@ -19,7 +19,7 @@ public class TreeMapLauncher extends BasicLauncher {
 
 	public static void main(String[] args) {
 		TreeMapLauncher launcher = new TreeMapLauncher();
-		launcher.startSushi();
+		launcher.startSushi("[forSushi]kiasan.treemap.txt");
 	}
 	
 }

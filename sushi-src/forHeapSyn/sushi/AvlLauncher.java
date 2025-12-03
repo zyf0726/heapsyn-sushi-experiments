@@ -31,7 +31,7 @@ public class AvlLauncher extends BasicLauncher {
 	
 	public static void main(String[] args) {
 		AvlLauncher launcher = new AvlLauncher();
-		launcher.startSushi();
+		launcher.startSushi("sushi.AvlTree.txt");
 	}
 
 }
